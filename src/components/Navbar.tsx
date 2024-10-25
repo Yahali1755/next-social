@@ -15,7 +15,7 @@ const Navbar = () => {
       {/* LEFT */}
       <div className="md:hidden lg:block w-[20%]">
         <Link href="/" className="font-bold text-xl text-blue-600">
-          LAMASOCIAL
+          NEXTSOCIAL
         </Link>
       </div>
       {/* CENTER */}
@@ -31,16 +31,6 @@ const Navbar = () => {
               className="w-4 h-4"
             />
             <span>Homepage</span>
-          </Link>
-          <Link href="/" className="flex items-center gap-2">
-            <Image
-              src="/friends.png"
-              alt="Friends"
-              width={16}
-              height={16}
-              className="w-4 h-4"
-            />
-            <span>Friends</span>
           </Link>
           <Link href="/" className="flex items-center gap-2">
             <Image

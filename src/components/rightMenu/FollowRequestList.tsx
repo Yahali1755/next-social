@@ -9,7 +9,7 @@ type RequestWithUser = FollowRequest & {
   sender: User;
 };
 
-const FriendRequestList = ({ requests }: { requests: RequestWithUser[] }) => {
+const FollowRequestList = ({ requests }: { requests: RequestWithUser[] }) => {
   const [requestState, setRequestState] = useState(requests);
 
   const accept = async (requestId: number, userId: string) => {
@@ -79,4 +79,4 @@ const FriendRequestList = ({ requests }: { requests: RequestWithUser[] }) => {
   );
 };
 
-export default FriendRequestList;
+export default FollowRequestList;

@@ -1,10 +1,9 @@
 import prisma from "@/lib/client";
 import { auth } from "@clerk/nextjs/server";
-import Image from "next/image";
 import Link from "next/link";
-import FriendRequestList from "./FriendRequestList";
+import FollowRequestList from "./FollowRequestList";
 
-const FriendRequests = async () => {
+const FollowRequests = async () => {
   const { userId } = auth();
 
   if (!userId) return null;
@@ -23,16 +22,16 @@ const FriendRequests = async () => {
     <div className="p-4 bg-white rounded-lg shadow-md text-sm flex flex-col gap-4">
       {/* TOP */}
       <div className="flex justify-between items-center font-medium">
-        <span className="text-gray-500">Friend Requests</span>
+        <span className="text-gray-500">Follow Requests</span>
         <Link href="/" className="text-blue-500 text-xs">
           See all
         </Link>
       </div>
       {/* USER */}
-      <FriendRequestList requests={requests}/>
+      <FollowRequestList requests={requests}/>
       
     </div>
   );
 };
 
-export default FriendRequests;
+export default FollowRequests;

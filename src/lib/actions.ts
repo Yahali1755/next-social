@@ -6,6 +6,7 @@ import { z } from "zod";
 import { revalidatePath } from "next/cache";
 
 export const switchFollow = async (userId: string) => {
+  "use server";
   const { userId: currentUserId } = auth();
 
   if (!currentUserId) {
@@ -56,6 +57,7 @@ export const switchFollow = async (userId: string) => {
 };
 
 export const switchBlock = async (userId: string) => {
+  "use server";
   const { userId: currentUserId } = auth();
 
   if (!currentUserId) {
@@ -91,6 +93,7 @@ export const switchBlock = async (userId: string) => {
 };
 
 export const acceptFollowRequest = async (userId: string) => {
+  "use server";
   const { userId: currentUserId } = auth();
 
   if (!currentUserId) {
@@ -126,6 +129,7 @@ export const acceptFollowRequest = async (userId: string) => {
 };
 
 export const declineFollowRequest = async (userId: string) => {
+  "use server";
   const { userId: currentUserId } = auth();
 
   if (!currentUserId) {
@@ -157,6 +161,7 @@ export const updateProfile = async (
   prevState: { success: boolean; error: boolean },
   payload: { formData: FormData; cover: string }
 ) => {
+  "use server";
   const { formData, cover } = payload;
   const fields = Object.fromEntries(formData);
 
@@ -203,6 +208,7 @@ export const updateProfile = async (
 };
 
 export const switchLike = async (postId: number) => {
+  "use server";
   const { userId } = auth();
 
   if (!userId) throw new Error("User is not authenticated!");
@@ -236,6 +242,7 @@ export const switchLike = async (postId: number) => {
 };
 
 export const addComment = async (postId: number, desc: string) => {
+  "use server";
   const { userId } = auth();
 
   if (!userId) throw new Error("User is not authenticated!");
@@ -260,6 +267,7 @@ export const addComment = async (postId: number, desc: string) => {
 };
 
 export const addPost = async (formData: FormData, img: string) => {
+  "use server";
   const desc = formData.get("desc") as string;
 
   const Desc = z.string().min(1).max(255);
@@ -291,6 +299,7 @@ export const addPost = async (formData: FormData, img: string) => {
 };
 
 export const addStory = async (img: string) => {
+  "use server";
   const { userId } = auth();
 
   if (!userId) throw new Error("User is not authenticated!");
@@ -327,6 +336,7 @@ export const addStory = async (img: string) => {
 };
 
 export const deletePost = async (postId: number) => {
+  "use server";
   const { userId } = auth();
 
   if (!userId) throw new Error("User is not authenticated!");
