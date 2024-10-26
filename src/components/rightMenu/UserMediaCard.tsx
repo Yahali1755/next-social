@@ -8,7 +8,7 @@ const UserMediaCard = async ({ user }: { user: User }) => {
     where: {
       userId: user.id,
       img: {
-        not: null,
+        not: "",
       },
     },
     take: 8,
